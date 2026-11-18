@@ -17,9 +17,9 @@ from pathlib import Path
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from reposage.chunkers.python_chunker import PythonASTChunker, CodeChunk
-from reposage.chunkers.js_chunker import JSChunker
-from reposage.chunkers.generic_chunker import GenericChunker
+from codeatlas.chunkers.python_chunker import PythonASTChunker, CodeChunk
+from codeatlas.chunkers.js_chunker import JSChunker
+from codeatlas.chunkers.generic_chunker import GenericChunker
 
 
 # ─── Fixtures ───

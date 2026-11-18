@@ -20,7 +20,7 @@ class CodeAgentEngine:
         self,
         repo_name: str,
         persist_dir: str = "./chroma_db",
-        clone_dir: str = "./tmp/reposage",
+        clone_dir: str = "./tmp/codeatlas",
         ollama_base_url: str = "http://localhost:11434",
         ollama_model: str = "qwen2.5-coder:7b", # Best for tools
         ollama_embed_model: str = "nomic-embed-text",

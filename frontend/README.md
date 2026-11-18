@@ -1,6 +1,6 @@
-# RepoSage Frontend — High-Performance AI Codebase Client
+# CodeAtlas Frontend — High-Performance AI Codebase Client
 
-This is the front-end user interface for RepoSage, built using **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**. It replaces the legacy Streamlit mockup with a state-of-the-art, fully responsive, and animated single-page application.
+This is the front-end user interface for CodeAtlas, built using **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**. It replaces the legacy Streamlit mockup with a state-of-the-art, fully responsive, and animated single-page application.
 
 ---
 

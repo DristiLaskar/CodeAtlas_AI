@@ -1,5 +1,5 @@
 """
-Code-Aware RAG Query Engine — The brain of RepoSage.
+Code-Aware RAG Query Engine — The brain of CodeAtlas.
 
 Handles the full query pipeline:
 1. Receive natural language question
@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 # ─── Prompts ───
 
-SYSTEM_PROMPT = """You are RepoSage, an expert code assistant with deep knowledge \
+SYSTEM_PROMPT = """You are CodeAtlas, an expert code assistant with deep knowledge \
 of the {repo_name} codebase. You answer questions about code architecture, \
 implementation details, and specific functions.
 

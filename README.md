@@ -221,7 +221,7 @@ Open **http://localhost:5173** in your browser.
 codeatlas/
 ├── backend/
 │   ├── main.py                     # FastAPI application entry point
-│   ├── reposage/                   # Core Python package
+│   ├── codeatlas/                   # Core Python package
 │   │   ├── chunkers/
 │   │   │   ├── python_chunker.py   # AST parser and call graph extraction
 │   │   │   ├── js_chunker.py       # Regex JS/TS parser

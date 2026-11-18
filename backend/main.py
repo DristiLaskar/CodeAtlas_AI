@@ -1,7 +1,7 @@
 """
-RepoSage — FastAPI Backend
+CodeAtlas — FastAPI Backend
 
-The API layer for RepoSage. Provides endpoints for:
+The API layer for CodeAtlas. Provides endpoints for:
 - POST /index     → Index a GitHub repository
 - POST /query     → Ask a question about an indexed repo
 - GET  /query/stream → SSE streaming for real-time answers
@@ -25,18 +25,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
-from reposage.ingestion.repo_indexer import RepoIndexer
-from reposage.query.rag_engine import CodeRAGEngine
-from reposage.query.agent_engine import CodeAgentEngine
-from reposage.query.query_transformer import QueryTransformer
-from reposage.analysis.repo_summarizer import RepoSummarizer
+from codeatlas.ingestion.repo_indexer import RepoIndexer
+from codeatlas.query.rag_engine import CodeRAGEngine
+from codeatlas.query.agent_engine import CodeAgentEngine
+from codeatlas.query.query_transformer import QueryTransformer
+from codeatlas.analysis.repo_summarizer import RepoSummarizer
 
 # ─── Logging ───
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
 )
-logger = logging.getLogger("reposage")
+logger = logging.getLogger("codeatlas")
 
 # ─── Configuration ───
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
@@ -44,7 +44,7 @@ OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")
 OLLAMA_EMBED_MODEL = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
-CLONE_DIR = os.getenv("CLONE_DIR", "./tmp/reposage")
+CLONE_DIR = os.getenv("CLONE_DIR", "./tmp/codeatlas")
 
 # ─── Shared instances ───
 indexer = RepoIndexer(
@@ -72,17 +72,17 @@ indexing_status: dict[str, dict] = {}
 # ─── Lifespan ───
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("🚀 RepoSage backend starting...")
+    logger.info("🚀 CodeAtlas backend starting...")
     logger.info(f"   ChromaDB: {CHROMA_PERSIST_DIR}")
     logger.info(f"   Clone dir: {CLONE_DIR}")
     logger.info(f"   Ollama URL: {OLLAMA_BASE_URL}")
     yield
-    logger.info("RepoSage backend shutting down.")
+    logger.info("CodeAtlas backend shutting down.")
 
 
 # ─── App ───
 app = FastAPI(
-    title="RepoSage API",
+    title="CodeAtlas API",
     description="AI Codebase Intelligence — Index GitHub repos and ask questions about code.",
     version="1.0.0",
     lifespan=lifespan,
@@ -157,7 +157,7 @@ async def health_check():
     """Health check endpoint."""
     return {
         "status": "healthy",
-        "service": "reposage",
+        "service": "codeatlas",
         "version": "1.0.0",
         "ollama_base_url": OLLAMA_BASE_URL,
     }
@@ -350,5 +350,5 @@ if __name__ == "__main__":
         "main:app",
         host="0.0.0.0",
         port=int(os.getenv("BACKEND_PORT", "8000")),
-        reload=True,
+        reload=False,
     )

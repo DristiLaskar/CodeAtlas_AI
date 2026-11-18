@@ -1,4 +1,4 @@
-# ─── RepoSage Backend Dependencies ───
+# ─── CodeAtlas Backend Dependencies ───
 
 # Web framework
 fastapi==0.115.6

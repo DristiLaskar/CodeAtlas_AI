@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create directories for ChromaDB and cloned repos
-RUN mkdir -p /app/chroma_db /tmp/reposage
+RUN mkdir -p /app/chroma_db /tmp/codeatlas
 
 # Expose port
 EXPOSE 8000

@@ -18,7 +18,7 @@ from dataclasses import dataclass
 # Add backend to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from reposage.chunkers.python_chunker import CodeChunk
+from codeatlas.chunkers.python_chunker import CodeChunk
 
 
 # ─── Mock classes for testing without actual models ───
@@ -250,7 +250,7 @@ class TestHybridSearchRRF:
     """Test Reciprocal Rank Fusion logic."""
 
     def test_reciprocal_rank_fusion(self):
-        from reposage.query.rag_engine import CodeRAGEngine
+        from codeatlas.query.rag_engine import CodeRAGEngine
         engine = CodeRAGEngine.__new__(CodeRAGEngine) # Bypass __init__
         
         docA = MockDocument(page_content="docA", metadata={})

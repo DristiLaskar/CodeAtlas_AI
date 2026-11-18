@@ -1,5 +1,5 @@
 """
-Python AST Chunker — The core innovation of RepoSage.
+Python AST Chunker — The core innovation of CodeAtlas.
 
 Uses Python's built-in `ast` module to parse the syntax tree and extract
 each function/class as an atomic, semantically complete chunk. Unlike
